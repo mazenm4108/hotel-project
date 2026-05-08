@@ -132,7 +132,7 @@ void cancelReservation() {
 // ── Person 7 ──────────────────────────────────────────────
 void showMenu() {
      cout << "\n====================================\n";
-    cout << "\nWELCOME TO FAHMAK YA EXPENSIVE HOTEL\n";
+    cout << "WELCOME TO FAHMAK YA EXPENSIVE HOTEL\n";
     cout << "====================================\n";
     cout << "1. Show Rooms\n";
     cout << "2. Book Room\n";
