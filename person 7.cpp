@@ -5,7 +5,9 @@ using namespace std;
 
 
 void showMenu() {
-    cout << "\nHotel System\n";
+     cout << "\n====================================\n";
+    cout << "WELCOME TO FAHMAK YA EXPENSIVE HOTEL\n";
+    cout << "====================================\n";
     cout << "1. Show Rooms\n";
     cout << "2. Book Room\n";
     cout << "3. Show Reservations\n";
