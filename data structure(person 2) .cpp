@@ -27,4 +27,15 @@ Room rooms[Max_rooms];
 Reservation reservations [Max_reservations];
 int Reservation_count=0;
 
-
+void initializeRooms();
+void showMenu();
+void bookingDone(string name, int room);
+void roomNotFound();
+void roomBooked();
+void noReservations();
+void cancelDone(int room);
+void bye();
+void displayRooms();
+void bookRoom();
+void viewReservations();
+void cancelReservation();
