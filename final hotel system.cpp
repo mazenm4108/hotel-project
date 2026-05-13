@@ -18,6 +18,7 @@ struct Reservation {
     int room_number;
     string check_IN_date;
     string check_OUT_date;
+    int nights;
     bool isActive;
 };
 
@@ -83,11 +84,19 @@ void bookRoom() {
             cin.ignore();
             getline(cin, newRes.guestname);
 
+            cout << "Enter Number of Nights: ";
+            int nights;
+            cin >> nights;
+ 
+            newRes.nights = nights;
+
             rooms[i].isAvailable = false;
             reservations[Reservation_count++] = newRes;
 
+            double total = rooms[i].room_price * nights;
             bookingDone(newRes.guestname, rNum);
             return;
+
         }
     }
     roomNotFound();
@@ -138,7 +147,8 @@ void showMenu() {
     cout << "2. Book Room\n";
     cout << "3. Show Reservations\n";
     cout << "4. Cancel Reservation\n";
-    cout << "5. Exit\n";
+    cout << "5. Checkout & Print Receipt\n";
+    cout << "6. Exit\n";
     cout << "Choose: ";
 }
 
@@ -168,6 +178,45 @@ void bye() {
     cout << "Bye\n";
 }
 
+
+// ── Receipt ───────────────────────────────────────────────
+void printReceipt(string name, int room, int nights, double total) {
+    cout << "\n------- BOOKING RECEIPT -------\n";
+    cout << "Guest Name   : " << name   << "\n";
+    cout << "Room Number  : " << room   << "\n";
+    cout << "Nights       : " << nights << "\n";
+    cout << "Total Price  : $" << fixed << setprecision(2) << total << "\n";
+    cout << "-------------------------------\n";
+}
+ 
+// ── Checkout ──────────────────────────────────────────────
+void checkoutAndReceipt() {
+    int rNum;
+    cout << "\nEnter Room Number to checkout: ";
+    cin >> rNum;
+ 
+    for (int i = 0; i < Reservation_count; i++) {
+        if (reservations[i].room_number == rNum && reservations[i].isActive) {
+            // Find room price
+            double price = 0;
+            for (int j = 0; j < Max_rooms; j++) {
+                if (rooms[j].room_number == rNum) {
+                    price = rooms[j].room_price;
+                    rooms[j].isAvailable = true;
+                    break;
+                }
+            }
+            reservations[i].isActive = false;
+            double total = price * reservations[i].nights;
+            printReceipt(reservations[i].guestname, rNum, reservations[i].nights, total);
+            return;
+        }
+    }
+    roomNotFound();
+}
+
+
+
 // ── main ──────────────────────────────────────────────────
 int main() {
     initializeRooms();
@@ -181,10 +230,11 @@ int main() {
             case 2: bookRoom();          break;
             case 3: viewReservations();  break;
             case 4: cancelReservation(); break;
-            case 5: bye();               break;
-            default: cout << "Invalid choice! Enter 1-5.\n";
+            case 5: checkoutAndReceipt();  break;
+            case 6: bye();               break;
+            default: cout << "Invalid choice! Enter 1-6.\n";
         }
-    } while (choice != 5);
+    } while (choice != 6);
 
     return 0;
 }
