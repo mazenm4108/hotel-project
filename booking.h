@@ -5,7 +5,7 @@
 #include "menu.h"
 using namespace std;
 
-void printReceipt(string name, int room, int nights, double total) {
+inline void printReceipt(string name, int room, int nights, double total) {
     cout << "\n------- BOOKING RECEIPT -------\n";
     cout << "Guest Name   : " << name   << "\n";
     cout << "Room Number  : " << room   << "\n";
@@ -14,7 +14,7 @@ void printReceipt(string name, int room, int nights, double total) {
     cout << "-------------------------------\n";
 }
 
-void bookRoom() {
+inline void bookRoom() {
     int rNum;
     cout << "\nEnter Room Number to book: ";
     cin >> rNum;

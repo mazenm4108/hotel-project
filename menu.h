@@ -3,7 +3,7 @@
 #include "structures.h"
 using namespace std;
 
-void showMenu() {
+inline void showMenu() {
     cout << "\n====================================\n";
     cout << "WELCOME TO FAHMAK YA EXPENSIVE HOTEL\n";
     cout << "====================================\n";
@@ -16,28 +16,28 @@ void showMenu() {
     cout << "Choose: ";
 }
 
-void bookingDone(string name, int room) {
+inline void bookingDone(string name, int room) {
     cout << "Booked successfully\n";
     cout << "Name: " << name << endl;
     cout << "Room: " << room << endl;
 }
 
-void roomNotFound() {
+inline void roomNotFound() {
     cout << "Room not found\n";
 }
 
-void roomBooked() {
+inline void roomBooked() {
     cout << "Room already booked\n";
 }
 
-void noReservations() {
+inline void noReservations() {
     cout << "No reservations\n";
 }
 
-void cancelDone(int room) {
+inline void cancelDone(int room) {
     cout << "Reservation canceled for room " << room << endl;
 }
 
-void bye() {
+inline void bye() {
     cout << "Bye\n";
 }
