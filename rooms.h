@@ -4,7 +4,7 @@
 #include "structures.h"
 using namespace std;
 
-void initializeRooms() {
+inline void initializeRooms() {
     rooms[0] = {101, "Single", 50.0, true};
     rooms[1] = {102, "Single", 50.0, true};
     rooms[2] = {201, "Double", 80.0, true};
@@ -12,7 +12,7 @@ void initializeRooms() {
     rooms[4] = {301, "Suite",  150.0, true};
 }
 
-void displayRooms() {
+inline void displayRooms() {
     cout << "\nRoom\tType\t\tPrice\tStatus\n";
     cout << "--------------------------------------\n";
     for (int i = 0; i < Max_rooms; i++) {

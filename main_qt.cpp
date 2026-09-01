@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "structures.h"
 
+// Global definitions
 Room rooms[Max_rooms];
 Reservation reservations[Max_reservations];
 int Reservation_count = 0;

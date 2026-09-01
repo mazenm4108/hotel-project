@@ -6,7 +6,7 @@
 #include "booking.h"
 using namespace std;
 
-void viewReservations() {
+inline void viewReservations() {
     bool found = false;
     cout << "\n--- Active Reservations ---\n";
     for (int i = 0; i < Reservation_count; i++) {
@@ -20,7 +20,7 @@ void viewReservations() {
         noReservations();
 }
 
-void cancelReservation() {
+inline void cancelReservation() {
     int rNum;
     cout << "\nEnter Room Number to cancel: ";
     cin >> rNum;
@@ -41,7 +41,7 @@ void cancelReservation() {
     roomNotFound();
 }
 
-void checkoutAndReceipt() {
+inline void checkoutAndReceipt() {
     int rNum;
     cout << "\nEnter Room Number to checkout: ";
     cin >> rNum;
